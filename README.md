@@ -55,11 +55,20 @@ This application is implement using the orchestration method.
 
 ## 🚀Project Demo <a name="live-demo"></a>
  ### Saga Diagram 
+![Screenshot 2023-08-28 at 12 39 38](https://github.com/anyepeter/Saga-application/assets/74084998/34c90745-cff6-479d-9131-73d9f66cbbc9)
 
 ### Successful order
 
 
+https://github.com/anyepeter/Saga-application/assets/74084998/52ae2baa-1c65-4157-8c21-732a3309d185
+
+
+
 ### Unsuccessful order
+
+
+https://github.com/anyepeter/Saga-application/assets/74084998/88214060-999f-4e12-b841-52d46d1f8374
+
 
  
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
