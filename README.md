@@ -19,29 +19,49 @@
 
 <!-- PROJECT  -->
 
-# 📖  <a name="about-project"></a>
+# 📖 [Pizza ordering app] <a name="about-project"></a>
 
-**[Blog App]** This repo is a simple Blog app website. that will show the list of posts and empower readers to interact with them by adding comments and liking posts
+**[Pizza ordering app]** This is a serveless application implemented using the saga design pattern. ***[Saga pattern]*** is it a design or mechanism that help to maintain data consistency and integrity in a microservice or distributed application(an application with multiple databases). A seccessful saga design should have the following characteristics
+ - Compensation: Ensure smooth transaction even if the transaction is successful or not
+ - Decentralized control: Each saga step manages it own transactions and interactions 
+ - Even-driven: Each saga step is triger by an event 
+It can be implemented in two ways: 
+- Choreography: Each saga step communicate with each other via event and it dont have a centralise coordinator.
+- Orchestration: Communicate via a centralise cordinator called orchestrator. 
+
+This application is implement using the orchestration method.
 
 ## 🛠 Built With <a name="built-with"></a>
 
-### Tech Stack
-- Server
-- Database
+### AWS services Used
+- ***[DynamoDB]***: is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability.
+- ***[Step function]***: is a serverless orchestration service that lets you combine AWS Lambda functions and other AWS services to build business-critical applications.
+- ***[Lambda function]***: is a compute service that lets you run code without provisioning or managing servers.
+- ***[Api gateway]***: is a compute service that lets you run code without provisioning or managing servers.
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
 
-- **[Create a post]**
-- **[LIke a post]**
-- **[Comment on a post]**
+- **[Order pizza base on the quantity]**
+- **[Change qauntity]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## How it works
+ 
+ This application make use of two databases that is order database and product database. When a user place an order, a series of saga steps are trigger and if the quantity is more than what is in the product database, the order will be cancel and the order will be deleted from the order table and if the order is less, the order will be place and the product database updated.  
+
 <!-- LIVE DEMO -->
 
-## 🚀Video Description <a name="live-demo"></a>
- - Coming soon
+## 🚀Project Demo <a name="live-demo"></a>
+ ### Saga Diagram 
+
+### Successful order
+
+
+### Unsuccessful order
+
+ 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
@@ -54,12 +74,10 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need:
 
-- Ruby should be installed.
-- You need a Terminal.
-
-```sh
- gem install rails
-```
+- AWS account.
+- Knowladge on step function, apigatway, lambda and dynamodb.
+- Nodejs
+- React
 
 ### Setup
 
@@ -67,7 +85,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git https://github.com/anyepeter/Blog-app.git
+  git https://github.com/anyepeter/saga-application.git
 ```
 
 ### Install
@@ -75,24 +93,9 @@ Clone this repository to your desired folder:
 Install this project with:
 
 ```sh
-  cd Blog-app
-  bundle install
-```
-
-### Usage
-
-To run the project, execute the following command:
-
-```sh
-  ruby bin/rails server
-```
-
-### Run tests
-
-To run tests, run the following command:
-
-```sh
-  rspec spec
+  cd saga-application
+  npm install
+  npm run dev
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -124,7 +127,7 @@ To run tests, run the following command:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/anyepeter/Blog-app/issues).
+Feel free to check the [issues page](https://github.com/anyepeter/saga-application/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -137,16 +140,28 @@ Give a ⭐️ if you like this project and how we managed to build it!
 
 <!-- ACKNOWLEDGEMENTS -->
 
-## 🙏 Acknowledgments <a name="acknowledgements"></a>
+## Implementation plan and diffcuilties
 
-- The original design ideal from Microverse💕.
-- Project from Microverse Ruby / Database and Interviewing module.
-- Thanks to the Microverse team for the great curriculum.
-- Thanks to the Code Reviewer(s) for the insightful feedbacks.
-- A great thanks to My coding partner(s), morning session team, and standup team for their contributions.
-- Hat tip to anyone whose code was used.
+### Monday 21/08/23
+ - Understand what saga pattern is all about
+ - Understand how a microservice application works
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+ ### Tuesday 22/08/23
+ - How saga pattern is implemented
+ - Can it be implement in a monolithic application?
+ - Best way to implement the design
+
+ ### Wednesday 23/08/23
+ - AWS services needed for to implement the system
+
+ ### Thursday 24/08/23
+ - Try to use Ruby on Rails to implement the design pattern. It was unsuccessful
+ ### Friday 25/08/23
+ - When to the hospital(sick)
+ ### Saturday  26/08/23
+ - Implement the design with AWS services 
+### Sunday 27/08/23
+- Implement the frontend with React
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
